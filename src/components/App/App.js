@@ -4,12 +4,14 @@ import FakeContainer from '../../containers/FakeContainer/'
 import { connect } from 'react-redux';
 import * as actions from '../../actions'
 import loadingGif from './loading-gif.gif';
+import * as api from '../../apiCalls';
 
 export class App extends Component {
   async componentDidMount () {
-    const response = await fetch('http://localhost:3001/types');
-    const data = await response.json();
-    this.props.loadPokemonTypes(data)
+    // const response = await fetch('http://localhost:3001/types');
+    // const data = await response.json();
+    const pokeTypes =  await api.getTypes()
+    this.props.loadPokemonTypes(pokeTypes)
     console.log('pokes',this.props.types)
   }
 
