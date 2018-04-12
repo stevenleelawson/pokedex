@@ -3,26 +3,38 @@ import './App.css';
 import FakeContainer from '../../containers/FakeContainer/'
 import { connect } from 'react-redux';
 import * as actions from '../../actions'
+import loadingGif from './loading-gif.gif';
 
 export class App extends Component {
   async componentDidMount () {
     const response = await fetch('http://localhost:3001/types');
     const data = await response.json();
-    console.log('pokes',data)
     this.props.loadPokemonTypes(data)
+    console.log('pokes',this.props.types)
   }
 
   render() {
+    if(!this.props.type) {
+
+    }
     return (
       <div className='App'>
         <h1 className='header'> POKéDEX </h1>
+        {this.props.types.length === 0 &&
+          <img src={loadingGif} />
+        }
         <FakeContainer />
       </div>
     );
   }
 }
 
+export const mapStateToProps = (state) => ({
+  types: state.types
+})
+
 export const mapDispatchToProps = (dispatch) => ({
   loadPokemonTypes: (pokemonType) => dispatch(actions.loadPokemonTypes(pokemonType))
 })
-export default connect(null, mapDispatchToProps)(App);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
