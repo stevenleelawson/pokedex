@@ -26,7 +26,7 @@ export class PokeContainer extends Component {
         pokeArray={type.pokemon}
         handleClick={this.handleClick}
         pokemon={this.props.pokemon}
-        poke={displayPoke}
+        // poke={displayPoke}
       />
     })
     const displayPoke = this.props.pokemon.map(poke => {
