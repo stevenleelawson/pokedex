@@ -16,13 +16,15 @@ export class PokeContainer extends Component {
   }
 
   render() {
+    console.log('yyyup?',this.props.pokemon)
     const displayTypes = this.props.types.map( type => {
       return <Card
-        name={type.name}
+        nameType={type.name}
         id={type.id}
         key={type.id}
         pokeArray={type.pokemon}
         handleClick={this.handleClick}
+        pokemon={this.props.pokemon}
       />
     })
     return (
@@ -33,7 +35,8 @@ export class PokeContainer extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  types: state.types
+  types: state.types,
+  pokemon: state.pokemon
 });
 
 export const mapDispatchToProps = (dispatch) => ({

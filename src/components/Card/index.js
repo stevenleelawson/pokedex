@@ -1,16 +1,11 @@
 import React from 'react';
 import './styles.css';
 
-const Card = ({name, id, pokeArray, handleClick}) => {
-  console.log('card',pokeArray)
-  const getID = () => {
-    const pokeIds = pokeArray.map( poke => poke.id);
-    console.log('crap',pokeIds)
-  }
+const Card = ({nameType, id, pokeArray, handleClick, pokemon}) => {
+  // const poke = pokemon.map(poke => )
   return (
     <div id={id} className='card' onClick={handleClick}>
-      <h1>{name}</h1>
-
+      <h1>{nameType}</h1>
     </div>
   )
 }
