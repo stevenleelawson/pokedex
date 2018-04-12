@@ -18,9 +18,7 @@ export class PokeContainer extends Component {
 
   render() {
     console.log('yyyup?',this.props.pokemon)
-    const displayPokes = this.props.pokemon.map( poke => {
 
-    })
     const displayTypes = this.props.types.map( type => {
       return <Card
         nameType={type.name}
@@ -31,9 +29,18 @@ export class PokeContainer extends Component {
         pokemon={this.props.pokemon}
       />
     })
+    const displayPoke = this.props.pokemon.map(poke => {
+      return <PokeCard
+              name={poke.name}
+              pic={poke.sprites.front_default}
+            />
+    })
     return (
       // <div>I be pokecon</div>
-      <div className='card-container'>{displayTypes}</div>
+      <div className='card-container'>
+        <div>{displayTypes}</div>
+        <div>{displayPoke}</div>
+      </div>
     )
   }
 }
