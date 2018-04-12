@@ -35,6 +35,7 @@ export class PokeContainer extends Component {
               pic={poke.sprites.front_default}
               weight={poke.weight}
               type={poke.type}
+              key={poke.id}
             />
     })
     return (
