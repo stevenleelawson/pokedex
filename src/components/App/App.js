@@ -11,7 +11,6 @@ export class App extends Component {
   async componentDidMount () {
     const pokeTypes =  await api.getTypes()
     this.props.loadPokemonTypes(pokeTypes)
-    console.log('pokes',this.props.types)
   }
 
   render() {

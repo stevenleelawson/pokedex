@@ -1,5 +1,5 @@
 import React from 'react';
-import {App, mapDispatchToProps} from './App';
+import {App, mapDispatchToProps, mapStateToProps } from './App';
 import { shallow } from 'enzyme';
 import * as actions from '../../actions';
 
@@ -24,5 +24,16 @@ describe('mapDispatchToProps', () => {
     const expected = actions.loadPokemonTypes(mockTypes);
     mapped.loadPokemonTypes(mockTypes);
     expect(mockDispatch).toHaveBeenCalledWith(expected)
+  })
+})
+
+describe('mapStateToProps', () => {
+  it('should update the state with types', () => {
+    const mockTypes = {
+      types: [{id: 1, name: 'normal'}]
+    }
+    const actual = mapStateToProps(mockTypes);
+    const expected = mockTypes
+    expect(actual).toEqual(expected);
   })
 })
