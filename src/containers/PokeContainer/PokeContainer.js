@@ -9,6 +9,7 @@ export class PokeContainer extends Component {
       return <Card
         name={type.name}
         key={type.id}
+        pokeArray={type.pokemon}
       />
     })
     return (
