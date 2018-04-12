@@ -4,7 +4,8 @@ import Card from '../../components/Card';
 import PokeCard from '../../components/PokeCard';
 import * as actions from '../../actions';
 import * as api from '../../apiCalls';
-import './styles.css'
+import './styles.css';
+import { Router } from 'react-router-dom';
 
 export class PokeContainer extends Component {
   handleClick = async (event) => {
@@ -17,8 +18,6 @@ export class PokeContainer extends Component {
   }
 
   render() {
-    console.log('yyyup?',this.props.pokemon)
-
     const displayTypes = this.props.types.map( type => {
       return <Card
         nameType={type.name}
@@ -27,16 +26,18 @@ export class PokeContainer extends Component {
         pokeArray={type.pokemon}
         handleClick={this.handleClick}
         pokemon={this.props.pokemon}
+        poke={displayPoke}
       />
     })
     const displayPoke = this.props.pokemon.map(poke => {
       return <PokeCard
               name={poke.name}
               pic={poke.sprites.front_default}
+              weight={poke.weight}
+              type={poke.type}
             />
     })
     return (
-      // <div>I be pokecon</div>
       <div className='card-container'>
         <div>{displayTypes}</div>
         <div>{displayPoke}</div>
