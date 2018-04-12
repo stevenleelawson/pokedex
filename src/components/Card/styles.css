@@ -4,3 +4,7 @@
   background-color: grey;
   margin: 2em;
 }
+
+.card h1 {
+  pointer-events: none;
+}

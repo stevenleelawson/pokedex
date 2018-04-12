@@ -9,17 +9,12 @@ import PokeContainer from '../../containers/PokeContainer/PokeContainer';
 
 export class App extends Component {
   async componentDidMount () {
-    // const response = await fetch('http://localhost:3001/types');
-    // const data = await response.json();
     const pokeTypes =  await api.getTypes()
     this.props.loadPokemonTypes(pokeTypes)
     console.log('pokes',this.props.types)
   }
 
   render() {
-    if(!this.props.type) {
-
-    }
     return (
       <div className='App'>
         <h1 className='header'> POKéDEX </h1>
