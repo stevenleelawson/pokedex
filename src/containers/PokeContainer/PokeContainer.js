@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from '../../components/Card';
+import PokeCard from '../../components/PokeCard';
 import * as actions from '../../actions';
 import * as api from '../../apiCalls';
 import './styles.css'
@@ -17,6 +18,9 @@ export class PokeContainer extends Component {
 
   render() {
     console.log('yyyup?',this.props.pokemon)
+    const displayPokes = this.props.pokemon.map( poke => {
+
+    })
     const displayTypes = this.props.types.map( type => {
       return <Card
         nameType={type.name}
