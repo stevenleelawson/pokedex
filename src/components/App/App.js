@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions'
 import loadingGif from './loading-gif.gif';
 import * as api from '../../apiCalls';
+import PokeContainer from '../../containers/PokeContainer/PokeContainer';
 
 export class App extends Component {
   async componentDidMount () {
@@ -25,7 +26,7 @@ export class App extends Component {
         {this.props.types.length === 0 &&
           <img src={loadingGif} />
         }
-        <FakeContainer />
+        <PokeContainer />
       </div>
     );
   }
