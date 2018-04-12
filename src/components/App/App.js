@@ -23,6 +23,6 @@ export class App extends Component {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  loadPokemonTypes: (pokemonType) => actions.loadPokemonTypes(pokemonType)
+  loadPokemonTypes: (pokemonType) => dispatch(actions.loadPokemonTypes(pokemonType))
 })
 export default connect(null, mapDispatchToProps)(App);
